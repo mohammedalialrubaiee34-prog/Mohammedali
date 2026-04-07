@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الشامل في الأحياء</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #1b5e20;
+            --bg: #f4f7f6;
+            --card: #ffffff;
+            --text: #2c3e50;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding-bottom: 30px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-bar {
+            display: flex;
+            background: var(--card);
+            margin: -20px 15px 20px;
+            padding: 5px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+        }
+
+        .nav-bar button {
+            flex: 1;
+            background: none; border: none;
+            color: var(--text); font-weight: bold;
+            padding: 12px 5px; border-radius: 10px;
+            cursor: pointer; font-family: 'Tajawal'; font-size: 0.9rem;
+        }
+
+        .nav-bar button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .container { padding: 0 15px; max-width: 600px; margin: auto; }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .section-title {
+            color: var(--secondary);
+            border-right: 4px solid var(--primary);
+            padding-right: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .video-card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .play-btn {
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .item-box {
+            background: #f1f8f4;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-right: 4px solid var(--primary);
+        }
+
+        .hidden { display: none; }
+        footer { text-align: center; color: #999; font-size: 0.75rem; margin-top: 20px; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="margin:0; font-size: 1.4rem;">الشامل في مادة الأحياء</h1>
+        <p style="margin:5px 0 0; opacity: 0.9; font-size: 0.85rem;">الأستاذ أسعد الأسدي</p>
+    </header>
+
+    <nav class="nav-bar">
+        <button id="btn-home" class="active" onclick="showTab('home')">الرئيسية</button>
+        <button id="btn-lessons" onclick="showTab('lessons')">المراجعة المركزة</button>
+        <button id="btn-bank" onclick="showTab('bank')">الأسئلة الوزارية</button>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="tab-content">
+            <div class="card">
+                <h3 class="section-title">مرحباً بك</h3>
+                <p style="line-height: 1.6; font-size: 0.9rem;">أهلاً بك في منصة الأستاذ أسعد الأسدي. هنا تجد كل ما يخص المراجعة المركزة والأسئلة الوزارية المهمة لضمان التفوق.</p>
+            </div>
+        </div>
+
+        <div id="lessons" class="tab-content hidden">
+            <h3 class="section-title">📺 محاضرات المراجعة المركزة</h3>
+
+            <div class="video-card">
+                <img src="https://img.youtube.com/vi/whQVvAHBPr0/mqdefault.jpg" class="video-thumbnail" alt="thumbnail">
+                <div style="margin-bottom:10px; font-weight:bold;">الفصل الأول: الخلية - الحلقة الأولى (المراجعة المركزة)</div>
+                <a href="https://www.youtube.com/watch?v=whQVvAHBPr0" target="_blank" class="play-btn">
+                    ▶️ فتح المحاضرة الآن
+                </a>
+            </div>
+        </div>
+
+        <div id="bank" class="tab-content hidden">
+            <div class="card">
+                <h3 class="section-title">🔬 الأسئلة الوزارية المهمة</h3>
+                <div class="item-box">
+                    <p><b>س: ما هي أسس النظرية الخلوية؟</b></p>
+                    <p style="font-size: 0.85rem;">ج: الكائنات تتكون من خلايا، الخلية هي الوحدة الأساسية، وتنتج الخلايا من انقسام خلايا سابقة.</p>
+                </div>
+                <div class="item-box">
+                    <p><b>س: علل: تظهر درنة البطاطا باللون الأبيض؟</b></p>
+                    <p style="font-size: 0.85rem;">ج: لاحتوائها على بلاستيدات عديمة اللون بكميات كبيرة محولة للجلوكوز إلى نشأ.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>تصميم وبرمجة: محمد علي براء © 2026</p>
+    </footer>
+
+    <script>
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.nav-bar button').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById('btn-' + id).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
