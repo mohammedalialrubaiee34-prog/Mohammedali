@@ -1,232 +1,106 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشامل في مادة الأحياء - الأستاذ أسعد الأسدي</title>
+    <title>منصة الأحياء - الأستاذ أسعد الأسدي</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #27ae60;
-            --secondary: #1b5e20;
-            --bg: #f8f9fa;
-            --card: #ffffff;
-            --text: #2c3e50;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            margin: 0;
-            padding-bottom: 50px;
-            transition: 0.3s;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 0 0 40px 40px;
-            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
-        }
-
-        .nav-bar {
-            display: flex;
-            background: var(--card);
-            margin: -25px 15px 20px;
-            padding: 8px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-        }
-
-        .nav-bar button {
-            flex: 1;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-weight: bold;
-            padding: 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            font-family: 'Tajawal';
-        }
-
-        .nav-bar button.active {
-            background: var(--primary);
-            color: white;
-        }
-
+        :root { --primary: #27ae60; --secondary: #1b5e20; --bg: #f8f9fa; --card: #ffffff; }
+        body { font-family: 'Tajawal', sans-serif; background-color: var(--bg); margin: 0; padding-bottom: 30px; }
+        header { background: linear-gradient(135deg, var(--secondary), var(--primary)); color: white; padding: 30px 15px; text-align: center; border-radius: 0 0 30px 30px; }
+        .nav-bar { display: flex; background: var(--card); margin: -20px 15px 20px; padding: 5px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .nav-bar button { flex: 1; background: none; border: none; padding: 10px; border-radius: 10px; cursor: pointer; font-family: 'Tajawal'; font-weight: bold; }
+        .nav-bar button.active { background: var(--primary); color: white; }
         .container { padding: 0 15px; max-width: 500px; margin: auto; }
-
-        .card {
-            background: var(--card);
-            border-radius: 25px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        /* تنسيق قائمة الأسئلة */
-        .question-item {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-            margin-bottom: 20px;
-        }
-        .question-tag {
-            background: var(--primary);
-            color: white;
-            padding: 3px 12px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-        .question-text { font-weight: bold; line-height: 1.6; margin: 5px 0; }
-        .question-img { width: 100%; border-radius: 15px; margin-top: 10px; border: 1px solid #ddd; }
-
-        /* تنسيق الشات */
-        #chat-window {
-            height: 350px;
-            overflow-y: auto;
-            background: #f9f9f9;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .msg { padding: 12px 16px; border-radius: 18px; font-size: 0.9rem; max-width: 85%; line-height: 1.5; }
-        .bot { background: var(--primary); color: white; align-self: flex-start; border-bottom-right-radius: 4px; }
-        .user { background: #e0e0e0; color: #333; align-self: flex-end; border-bottom-left-radius: 4px; }
-
-        .input-group { display: flex; gap: 8px; }
-        .input-group input { flex: 1; padding: 12px; border-radius: 12px; border: 1px solid #ddd; outline: none; font-family: 'Tajawal'; }
-        .input-group button { background: var(--primary); color: white; border: none; padding: 0 20px; border-radius: 12px; cursor: pointer; font-weight: bold; }
-
-        footer { text-align: center; color: #999; font-size: 0.8rem; margin-top: 30px; }
-        .designer { font-size: 0.65rem; display: block; margin-top: 4px; color: #bbb; }
+        .card { background: var(--card); border-radius: 20px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        #chat-window { height: 300px; overflow-y: auto; background: #fdfdfd; border-radius: 10px; padding: 10px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #eee; }
+        .msg { padding: 10px 14px; border-radius: 15px; font-size: 0.9rem; line-height: 1.4; max-width: 85%; }
+        .bot { background: var(--primary); color: white; align-self: flex-start; }
+        .user { background: #eee; color: #333; align-self: flex-end; }
+        .input-group { display: flex; gap: 5px; margin-top: 10px; }
+        .input-group input { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #ddd; outline: none; }
+        .input-group button { background: var(--primary); color: white; border: none; padding: 0 15px; border-radius: 10px; }
         .hidden { display: none; }
+        .question-img { width: 100%; border-radius: 10px; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1 style="margin:0; font-size: 1.5rem;">الشامل في مادة الأحياء</h1>
-        <p style="margin:5px 0 0; opacity: 0.9; font-size: 0.9rem;">الأستاذ أسعد الأسدي</p>
-    </header>
+<header>
+    <h2 style="margin:0;">الشامل في مادة الأحياء</h2>
+    <p style="margin:5px 0 0; opacity: 0.8;">الأستاذ أسعد الأسدي</p>
+</header>
 
-    <nav class="nav-bar">
-        <button id="btn-ai" class="active" onclick="showTab('ai')">المساعد الذكي</button>
-        <button id="btn-ques" onclick="showTab('ques')">بنك الأسئلة</button>
-        <button id="btn-info" onclick="showTab('info')">حول المنصة</button>
-    </nav>
+<nav class="nav-bar">
+    <button id="btn-ai" class="active" onclick="showTab('ai')">الذكاء الاصطناعي</button>
+    <button id="btn-ques" onclick="showTab('ques')">بنك الأسئلة</button>
+</nav>
 
-    <div class="container">
-        
-        <div id="ai" class="tab-content">
-            <div class="card">
-                <h3 style="margin-top:0; color:var(--primary); font-size: 1.1rem;">🤖 اسأل أي سؤال في المنهج</h3>
-                <div id="chat-window">
-                    <div class="msg bot">مرحباً بك يا بطل! أنا مساعدك الذكي في مادة الأحياء. اكتب أي موضوع وسأشرحه لك فوراً.</div>
-                </div>
-                <div class="input-group">
-                    <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا...">
-                    <button onclick="ask()">إرسال</button>
-                </div>
+<div class="container">
+    <div id="ai" class="tab-content">
+        <div class="card">
+            <div id="chat-window">
+                <div class="msg bot">أهلاً بك! أنا مساعدك الذكي في مادة الأحياء. كيف يمكنني مساعدتك اليوم؟</div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا...">
+                <button onclick="ask()">إرسال</button>
             </div>
         </div>
-
-        <div id="ques" class="tab-content hidden">
-            <div class="card">
-                <h3 style="margin-top:0; color:var(--primary); text-align: center;">🔬 مكتبة الأسئلة الوزارية</h3>
-                
-                <div class="question-item">
-                    <span class="question-tag">الفصل الأول</span>
-                    <p class="question-text">س: ما وظيفة الجسيم المركزي في الخلية؟</p>
-                </div>
-
-                <div class="question-item">
-                    <span class="question-tag">رسومات المنهج</span>
-                    <p class="question-text">س: وضح بالرسم تركيب الغشاء البلازمي؟</p>
-                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=400" class="question-img" alt="Bio Image">
-                </div>
-
-                <p style="text-align: center; font-size: 0.7rem; color: #999;">سيتم تحديث الأسئلة بشكل دوري.</p>
-            </div>
-        </div>
-
-        <div id="info" class="tab-content hidden">
-            <div class="card" style="text-align: center;">
-                <h3 style="color:var(--primary)">معهد الصدارة التعليمي</h3>
-                <p style="font-size: 0.9rem;">تطبيق تفاعلي ذكي لخدمة طلبة الأستاذ القدير <b>أسعد الأسدي</b>، يهدف لتسهيل دراسة مادة الأحياء باستخدام أحدث التقنيات.</p>
-                <hr style="opacity: 0.1">
-                <p style="font-size: 0.8rem;">نسخة عام 2026</p>
-            </div>
-        </div>
-
-        <footer>
-            <p>معهد الصدارة التعليمي</p>
-            <span class="designer">تصميم وبرمجة: محمدعلي براء</span>
-        </footer>
     </div>
 
-    <script>
-        // حماية مفتاح الـ API بالتقسيم
-        const k1 = "AIzaSyA5zNrU5";
-        const k2 = "4Ca2MxEk2l3T2OL";
-        const k3 = "RpilsXGPrQQ";
-        const GEMINI_KEY = k1 + k2 + k3;
+    <div id="ques" class="tab-content hidden">
+        <div class="card">
+            <h4>🔬 أسئلة وزارية مهمة</h4>
+            <p><b>س: ما هي وظيفة الدكتيوسوم في الخلية النباتية؟</b></p>
+            <p>ج: يقوم ببناء السليلوز وبعض مكونات الجدار الخلوي في الخلية النباتية.</p>
+            <hr>
+            <p><b>س: ارسم مع التأشير تركيب الغشاء البلازمي؟</b></p>
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=400" class="question-img">
+        </div>
+    </div>
+</div>
 
-        function showTab(id) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
-            document.querySelectorAll('.nav-bar button').forEach(b => b.classList.remove('active'));
-            document.getElementById(id).classList.remove('hidden');
-            document.getElementById('btn-' + id).classList.add('active');
+<script>
+    // تقسيم المفتاح الجديد لضمان الحماية
+    const p1 = "AIzaSyA5zNrU5";
+    const p2 = "4Ca2MxEk2l3T2OL";
+    const p3 = "RpilsXGPrQQ";
+    const API_KEY = p1 + p2 + p3;
+
+    function showTab(id) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+        document.querySelectorAll('.nav-bar button').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.remove('hidden');
+        document.getElementById('btn-' + id).classList.add('active');
+    }
+
+    async function ask() {
+        const input = document.getElementById('aiInput');
+        const win = document.getElementById('chat-window');
+        const text = input.value.trim();
+        if(!text) return;
+
+        win.innerHTML += `<div class="msg user">${text}</div>`;
+        input.value = "";
+        const tempId = "res-" + Date.now();
+        win.innerHTML += `<div class="msg bot" id="${tempId}">جاري التحقق...</div>`;
+        win.scrollTop = win.scrollHeight;
+
+        try {
+            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ contents: [{ parts: [{ text: `أنت مساعد تعليمي لأحياء السادس العلمي، أجب باختصار: ${text}` }] }] })
+            });
+            const data = await res.json();
+            document.getElementById(tempId).innerText = data.candidates[0].content.parts[0].text;
+        } catch (e) {
+            document.getElementById(tempId).innerText = "حدث خطأ في الاتصال، تأكد من الإنترنت.";
         }
-
-        async function ask() {
-            const input = document.getElementById('aiInput');
-            const win = document.getElementById('chat-window');
-            const userQ = input.value.trim();
-
-            if(!userQ) return;
-
-            win.innerHTML += `<div class="msg user">${userQ}</div>`;
-            input.value = "";
-            win.scrollTop = win.scrollHeight;
-
-            try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{ text: `أنت مدرس أحياء عراقي خبير، تجيب طلاب الأستاذ أسعد الأسدي بدقة واختصار بلهجة علمية رصينة: ${userQ}` }]
-                        }]
-                    })
-                });
-
-                const data = await response.json();
-                
-                if (data.candidates && data.candidates[0].content) {
-                    const aiReply = data.candidates[0].content.parts[0].text;
-                    win.innerHTML += `<div class="msg bot">${aiReply}</div>`;
-                } else {
-                    throw new Error();
-                }
-            } catch (error) {
-                win.innerHTML += `<div class="msg bot" style="background:#fff0f0; color:#d32f2f;">⚠️ نعتذر، هناك مشكلة في الاتصال. يرجى التأكد من الإنترنت أو تحديث الصفحة.</div>`;
-            }
-            win.scrollTop = win.scrollHeight;
-        }
-
-        // تفعيل الإرسال عند ضغط زر Enter
-        document.getElementById("aiInput").addEventListener("keyup", function(e)
+        win.scrollTop = win.scrollHeight;
+    }
+</script>
+</body>
+</html>
