@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشامل في مادة الأحياء</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --text: #2c3e50;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] {
+            --bg: #121212;
+            --card: #1e1e1e;
+            --text: #e0e0e0;
+            --primary: #2ecc71;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            transition: 0.3s;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1b5e20, var(--primary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.2);
+        }
+
+        .nav-bar {
+            display: flex;
+            background: var(--card);
+            margin: -25px 15px 20px;
+            padding: 8px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+        }
+
+        .nav-bar button {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Tajawal';
+        }
+
+        .nav-bar button.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .container { padding: 0 15px; max-width: 500px; margin: auto; }
+
+        .card {
+            background: var(--card);
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* بنك الأسئلة */
+        .question-item {
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .question-item:last-child { border: none; }
+        
+        .question-tag {
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .question-text { font-weight: bold; margin: 5px 0; line-height: 1.6; }
+
+        .question-img { 
+            width: 100%; 
+            border-radius: 15px; 
+            margin: 10px 0; 
+            border: 2px solid #eee;
+        }
+
+        /* الشات */
+        #chat-window {
+            height: 300px;
+            overflow-y: auto;
+            background: rgba(0,0,0,0.03);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .msg { margin-bottom: 10px; padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; max-width: 85%; }
+        .bot { background: var(--primary); color: white; align-self: flex-start; }
+        .user { background: #eee; color: #333; align-self: flex-end; }
+
+        .input-group { display: flex; gap: 8px; }
+        .input-group input { flex: 1; padding: 12px; border-radius: 12px; border: 1px solid #ddd; outline: none; font-family: 'Tajawal'; }
+        .input-group button { background: var(--primary); color: white; border: none; padding: 0 20px; border-radius: 12px; cursor: pointer; }
+
+        footer { text-align: center; color: #888; font-size: 0.8rem; margin-top: 30px; }
+        .designer { font-size: 0.6rem; opacity: 0.7; display: block; margin-top: 5px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="margin:0; font-size: 1.6rem;">الشامل في مادة الأحياء</h1>
+        <p style="margin:5px 0 0; opacity: 0.9;">الأستاذ أسعد الأسدي</p>
+    </header>
+
+    <nav class="nav-bar">
+        <button id="btn-ai" class="active" onclick="showTab('ai')">الذكاء الاصطناعي</button>
+        <button id="btn-ques" onclick="showTab('ques')">بنك الأسئلة</button>
+        <button id="btn-info" onclick="showTab('info')">حول المنصة</button>
+    </nav>
+
+    <div class="container">
+        
+        <div id="ai" class="tab-content">
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--primary)">🤖 اسأل المساعد الذكي</h3>
+                <div id="chat-window">
+                    <div class="msg bot">مرحباً بك! أنا مساعدك الذكي في مادة الأحياء. كيف يمكنني مساعدتك اليوم؟</div>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="aiInput" placeholder="اكتب سؤالك هنا...">
+                    <button onclick="ask()">إرسال</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="ques" class="tab-content hidden">
+            <div class="card">
+                <h3 style="margin-top:0; color:var(--primary); text-align: center;">🔬 مكتبة الأسئلة</h3>
+                <hr style="opacity: 0.1; margin: 15px 0;">
+
+                <div class="question-item">
+                    <span class="question-tag">الفصل الأول</span>
+                    <p class="question-text">س: علل، توجد الأقراص البينية في العضلة القلبية؟</p>
+                </div>
+
+                <div class="question-item">
+                    <span class="question-tag">الفصل الأول</span>
+                    <p class="question-text">س: ما هي الأجزاء المؤشرة في الشكل الموضح أدناه؟</p>
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=400" class="question-img">
+                </div>
+
+                <p style="text-align: center; font-size: 0.75rem; color: #999;">سيتم إضافة المزيد من الأسئلة تباعاً.</p>
+            </div>
+        </div>
+
+        <div id="info" class="tab-content hidden">
+            <div class="card" style="text-align: center;">
+                <h3 style="color:var(--primary)">معهد الصدارة التعليمي</h3>
+                <p>منصة تعليمية ذكية لخدمة طلبة الأستاذ القدير <b>أسعد الأسدي</b>.</p>
+                <hr style="opacity: 0.1">
+                <p>جميع الحقوق محفوظة © 2026</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>معهد الصدارة التعليمي</p>
+            <span class="designer">تصميم وبرمجة: محمدعلي براء</span>
+        </footer>
+    </div>
+
+    <script>
+        const GEMINI_KEY = 'AIzaSyBiMjRN7A27gxPPvxccNkj_DcVHtAhtBRg'; 
+
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.add('hidden'));
+            document.querySelectorAll('.nav-bar button').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById('btn-' + id).classList.add('active');
+        }
+
+        async function ask() {
+            const input = document.getElementById('aiInput');
+            const win = document.getElementById('chat-window');
+            if(!input.value.trim()) return;
+
+            win.innerHTML += `<div class="msg user">${input.value}</div>`;
+            const userQ = input.value;
+            input.value = "";
+            win.scrollTop = win.scrollHeight;
+
+            try {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ contents: [{ parts: [{ text: `أنت مساعد خبير في أحياء السادس العلمي العراقي للأستاذ أسعد الأسدي، أجب بدقة: ${userQ}` }] }] })
+                });
+                const d = await res.json();
+                const reply = d.candidates[0].content.parts[0].text;
+                win.innerHTML += `<div class="msg bot">${reply}</div>`;
+            } catch {
+                win.innerHTML += `<div class="msg bot" style="color:red">خطأ في الاتصال. جرب مرة أخرى.</div>`;
+            }
+            win.scrollTop = win.scrollHeight;
+        }
+
+        document.getElementById("aiInput").addEventListener("keyup", function(e) { if (e.key === "Enter") ask(); });
+    </script>
+</body>
+</html>
