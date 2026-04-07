@@ -74,13 +74,13 @@
             font-size: 1.1rem;
         }
 
-        /* تنسيق مشغل الفيديو */
         .video-box {
             background: #fff;
             border-radius: 15px;
             overflow: hidden;
             margin-bottom: 20px;
             border: 1px solid #eee;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .video-wrapper {
@@ -98,18 +98,19 @@
         }
 
         .video-desc {
-            padding: 12px;
+            padding: 15px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-align: center;
+            color: var(--secondary);
         }
 
         .item-box {
             background: #f1f8f4;
             border-radius: 12px;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-right: 3px solid var(--primary);
+            padding: 15px;
+            margin-bottom: 12px;
+            border-right: 4px solid var(--primary);
         }
 
         .hidden { display: none; }
@@ -126,7 +127,7 @@
     <nav class="nav-bar">
         <button id="btn-home" class="active" onclick="showTab('home')">الرئيسية</button>
         <button id="btn-lessons" onclick="showTab('lessons')">المحاضرات</button>
-        <button id="btn-bank" onclick="showTab('bank')">الوزاريات</button>
+        <button id="btn-bank" onclick="showTab('bank')">أسئلة الأستاذ</button>
     </nav>
 
     <div class="container">
@@ -134,39 +135,38 @@
         <div id="home" class="tab-content">
             <div class="card">
                 <h3 class="section-title">مرحباً بك</h3>
-                <p style="line-height: 1.6; font-size: 0.9rem;">أهلاً بك في منصة الأستاذ أسعد الأسدي. تم تصميم هذا التطبيق ليوفر لك المحاضرات والأسئلة الوزارية بأفضل جودة وسهولة.</p>
+                <p style="line-height: 1.6; font-size: 0.9rem;">أهلاً بك في منصة الأستاذ أسعد الأسدي. تم تحديث النظام ليشمل المراجعة المركزية وأحدث الأسئلة الوزارية.</p>
             </div>
         </div>
 
         <div id="lessons" class="tab-content hidden">
-            <h3 class="section-title">📺 قائمة المحاضرات المعتمدة</h3>
+            <h3 class="section-title">📺 المراجعة المركزية - الفصل الأول</h3>
 
             <div class="video-box">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/V8-E89Wz16Q" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/whQVvAHBPr0" allowfullscreen></iframe>
                 </div>
-                <div class="video-desc">المحاضرة الأولى: مقدمة في علم الخلية</div>
+                <div class="video-desc">الفصل الأول: الخلية - الحلقة الأولى (المراجعة المركزية)</div>
             </div>
-
-            <div class="video-box">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/V8-E89Wz16Q" allowfullscreen></iframe>
-                </div>
-                <div class="video-desc">المحاضرة الثانية: الخلية بدائية النواة</div>
-            </div>
-
-            </div>
+        </div>
 
         <div id="bank" class="tab-content hidden">
             <div class="card">
-                <h3 class="section-title">🔬 أهم الوزاريات</h3>
+                <h3 class="section-title">🔬 أسئلة الأستاذ أسعد الأسدي</h3>
+                
                 <div class="item-box">
-                    <p><b>س: ما منشأ الجسيمات الحالمة؟</b></p>
-                    <p>ج: تنشأ من جهاز كولجي.</p>
+                    <p><b>س: ما هي أسس النظرية الخلوية؟</b></p>
+                    <p style="font-size: 0.85rem;">ج: 1- الكائنات تتكون من خلايا. 2- الخلية هي الوحدة الأساسية. 3- الخلايا تنتج من انقسام خلايا أخرى.</p>
                 </div>
+
                 <div class="item-box">
-                    <p><b>س: عرف النوية؟</b></p>
-                    <p>ج: تركيب كروي داخل النواة، وهي مركز لتكوين الرايبوسومات.</p>
+                    <p><b>س: ما التركيب الكيميائي للغشاء البلازمي؟</b></p>
+                    <p style="font-size: 0.85rem;">ج: طبقتين من الدهون المفسفرة تتخللها جزيئات بروتينية.</p>
+                </div>
+
+                <div class="item-box">
+                    <p><b>س: علل: تدعى المايتوكوندريا ببيوت الطاقة؟</b></p>
+                    <p style="font-size: 0.85rem;">ج: لما لها من علاقة بإنتاج جزيئات ATP ذات الطاقة العالية.</p>
                 </div>
             </div>
         </div>
@@ -174,7 +174,7 @@
     </div>
 
     <footer>
-        <p>معهد الصدارة التعليمي © 2026</p>
+        <p>تصميم وبرمجة: محمد علي براء ومحمد رضا ضياء © 2026</p>
     </footer>
 
     <script>
