@@ -114,7 +114,7 @@
         }
 
         .hidden { display: none; }
-        footer { text-align: center; color: #999; font-size: 0.75rem; margin-top: 20px; }
+        footer { text-align: center; color: #999; font-size: 0.75rem; margin-top: 20px; padding: 20px; }
     </style>
 </head>
 <body>
@@ -126,8 +126,8 @@
 
     <nav class="nav-bar">
         <button id="btn-home" class="active" onclick="showTab('home')">الرئيسية</button>
-        <button id="btn-lessons" onclick="showTab('lessons')">المحاضرات</button>
-        <button id="btn-bank" onclick="showTab('bank')">أسئلة الأستاذ</button>
+        <button id="btn-lessons" onclick="showTab('lessons')">المراجعة المركزة</button>
+        <button id="btn-bank" onclick="showTab('bank')">الأسئلة الوزارية</button>
     </nav>
 
     <div class="container">
@@ -135,38 +135,33 @@
         <div id="home" class="tab-content">
             <div class="card">
                 <h3 class="section-title">مرحباً بك</h3>
-                <p style="line-height: 1.6; font-size: 0.9rem;">أهلاً بك في منصة الأستاذ أسعد الأسدي. تم تحديث النظام ليشمل المراجعة المركزية وأحدث الأسئلة الوزارية.</p>
+                <p style="line-height: 1.6; font-size: 0.9rem;">أهلاً بك في منصة الأستاذ أسعد الأسدي. تم تحديث الواجهة لتسهيل الوصول للمراجعة المركزة والأسئلة الوزارية المهمة.</p>
             </div>
         </div>
 
         <div id="lessons" class="tab-content hidden">
-            <h3 class="section-title">📺 المراجعة المركزية - الفصل الأول</h3>
+            <h3 class="section-title">📺 محاضرات المراجعة المركزة</h3>
 
             <div class="video-box">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/whQVvAHBPr0" allowfullscreen></iframe>
                 </div>
-                <div class="video-desc">الفصل الأول: الخلية - الحلقة الأولى (المراجعة المركزية)</div>
+                <div class="video-desc">الفصل الأول: الخلية - الحلقة الأولى</div>
             </div>
         </div>
 
         <div id="bank" class="tab-content hidden">
             <div class="card">
-                <h3 class="section-title">🔬 أسئلة الأستاذ أسعد الأسدي</h3>
+                <h3 class="section-title">🔬 بنك الأسئلة الوزارية</h3>
                 
                 <div class="item-box">
                     <p><b>س: ما هي أسس النظرية الخلوية؟</b></p>
-                    <p style="font-size: 0.85rem;">ج: 1- الكائنات تتكون من خلايا. 2- الخلية هي الوحدة الأساسية. 3- الخلايا تنتج من انقسام خلايا أخرى.</p>
+                    <p style="font-size: 0.85rem;">ج: الكائنات تتكون من خلايا، الخلية هي الوحدة الأساسية، وتنتج الخلايا من انقسام خلايا سابقة.</p>
                 </div>
 
                 <div class="item-box">
-                    <p><b>س: ما التركيب الكيميائي للغشاء البلازمي؟</b></p>
-                    <p style="font-size: 0.85rem;">ج: طبقتين من الدهون المفسفرة تتخللها جزيئات بروتينية.</p>
-                </div>
-
-                <div class="item-box">
-                    <p><b>س: علل: تدعى المايتوكوندريا ببيوت الطاقة؟</b></p>
-                    <p style="font-size: 0.85rem;">ج: لما لها من علاقة بإنتاج جزيئات ATP ذات الطاقة العالية.</p>
+                    <p><b>س: عرف الغشاء البلازمي؟</b></p>
+                    <p style="font-size: 0.85rem;">ج: غشاء خلوي يحيط بالسيتوبلازم في الخلايا بدائية وحقيقية النواة، وهو غشاء رقيق مرن ونصف ناضح.</p>
                 </div>
             </div>
         </div>
@@ -174,7 +169,7 @@
     </div>
 
     <footer>
-        <p>تصميم وبرمجة: محمد علي براء ومحمد رضا ضياء © 2026</p>
+        <p>تصميم وبرمجة: محمد علي براء © 2026</p>
     </footer>
 
     <script>
